@@ -2,11 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: gcr.io/kaniko-project/executor:latest
+      - image: endocrimes/kaniko-circle:latest
     steps:
       - checkout
       - run:
           name: Build docker image with kaniko
           command: |
-            executor --dockerfile=Dockerfile \
+            /kaniko/executor --dockerfile=Dockerfile \
               --destination=endocrimes/kaniko-test
