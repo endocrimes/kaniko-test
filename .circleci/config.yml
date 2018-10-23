@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: gcr.io/kaniko-project/executor:latest
+    steps:
+      - checkout
+      - run:
+          name: Build docker image with kaniko
+          command: |
+            executor --dockerfile=Dockerfile \
+              --destination=endocrimes/kaniko-test
